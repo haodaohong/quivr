@@ -4,10 +4,10 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://quivr.app",
-    "https://www.quivr.app",
-    "http://quivr.app",
-    "http://www.quivr.app",
+    "https://laiwen.cn",
+    "http://www.laiwen.cn",
+    "https://quivr.laiwen.cn",
+    "https://dev.laiwen.cn",
     "*",
 ]
 
