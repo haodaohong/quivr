@@ -5,9 +5,10 @@ origins = [
     "http://localhost:3000",
     "http://localhost:3001",
     "https://laiwen.cn",
-    "http://www.laiwen.cn",
+    "https://www.laiwen.cn",
     "https://quivr.laiwen.cn",
     "https://dev.laiwen.cn",
+    "https://flower.laiwen.cn",
     "*",
 ]
 
