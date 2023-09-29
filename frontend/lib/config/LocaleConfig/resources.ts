@@ -3,9 +3,10 @@
 import brain_en from "../../../public/locales/en/brain.json";
 import chat_en from "../../../public/locales/en/chat.json";
 import config_en from "../../../public/locales/en/config.json";
-import delete_brain_en from "../../../public/locales/en/deleteBrain.json";
+import delete_brain_en from "../../../public/locales/en/deleteOrUnsubscribeFromBrain.json";
 import explore_en from "../../../public/locales/en/explore.json";
 import invitation_en from "../../../public/locales/en/invitation.json";
+import knowlegde_en from "../../../public/locales/en/knowledge.json";
 import login_en from "../../../public/locales/en/login.json";
 import logout_en from "../../../public/locales/en/logout.json";
 import signUp_en from "../../../public/locales/en/signUp.json";
@@ -17,9 +18,10 @@ import user_en from "../../../public/locales/en/user.json";
 import brain_es from "../../../public/locales/es/brain.json";
 import chat_es from "../../../public/locales/es/chat.json";
 import config_es from "../../../public/locales/es/config.json";
-import delete_brain_es from "../../../public/locales/es/deleteBrain.json";
+import delete_brain_es from "../../../public/locales/es/deleteOrUnsubscribeFromBrain.json";
 import explore_es from "../../../public/locales/es/explore.json";
 import invitation_es from "../../../public/locales/es/invitation.json";
+import knowlegde_es from "../../../public/locales/es/knowledge.json";
 import login_es from "../../../public/locales/es/login.json";
 import logout_es from "../../../public/locales/es/logout.json";
 import signUp_es from "../../../public/locales/es/signUp.json";
@@ -31,9 +33,10 @@ import user_es from "../../../public/locales/es/user.json";
 import brain_fr from "../../../public/locales/fr/brain.json";
 import chat_fr from "../../../public/locales/fr/chat.json";
 import config_fr from "../../../public/locales/fr/config.json";
-import delete_brain_fr from "../../../public/locales/fr/deleteBrain.json";
+import delete_brain_fr from "../../../public/locales/fr/deleteOrUnsubscribeFromBrain.json";
 import explore_fr from "../../../public/locales/fr/explore.json";
 import invitation_fr from "../../../public/locales/fr/invitation.json";
+import knowlegde_fr from "../../../public/locales/fr/knowledge.json";
 import login_fr from "../../../public/locales/fr/login.json";
 import logout_fr from "../../../public/locales/fr/logout.json";
 import signUp_fr from "../../../public/locales/fr/signUp.json";
@@ -45,9 +48,10 @@ import user_fr from "../../../public/locales/fr/user.json";
 import brain_ptbr from "../../../public/locales/pt-br/brain.json";
 import chat_ptbr from "../../../public/locales/pt-br/chat.json";
 import config_ptbr from "../../../public/locales/pt-br/config.json";
-import delete_brain_ptbr from "../../../public/locales/pt-br/deleteBrain.json";
+import delete_brain_ptbr from "../../../public/locales/pt-br/deleteOrUnsubscribeFromBrain.json";
 import explore_ptbr from "../../../public/locales/pt-br/explore.json";
 import invitation_ptbr from "../../../public/locales/pt-br/invitation.json";
+import knowlegde_ptbr from "../../../public/locales/pt-br/knowledge.json";
 import login_ptbr from "../../../public/locales/pt-br/login.json";
 import logout_ptbr from "../../../public/locales/pt-br/logout.json";
 import signUp_ptbr from "../../../public/locales/pt-br/signUp.json";
@@ -59,9 +63,10 @@ import user_ptbr from "../../../public/locales/pt-br/user.json";
 import brain_ru from "../../../public/locales/ru/brain.json";
 import chat_ru from "../../../public/locales/ru/chat.json";
 import config_ru from "../../../public/locales/ru/config.json";
-import delete_brain_ru from "../../../public/locales/ru/deleteBrain.json";
+import delete_brain_ru from "../../../public/locales/ru/deleteOrUnsubscribeFromBrain.json";
 import explore_ru from "../../../public/locales/ru/explore.json";
 import invitation_ru from "../../../public/locales/ru/invitation.json";
+import knowlegde_ru from "../../../public/locales/ru/knowledge.json";
 import login_ru from "../../../public/locales/ru/login.json";
 import logout_ru from "../../../public/locales/ru/logout.json";
 import signUp_ru from "../../../public/locales/ru/signUp.json";
@@ -73,9 +78,10 @@ import user_ru from "../../../public/locales/ru/user.json";
 import brain_zh_cn from "../../../public/locales/zh-cn/brain.json";
 import chat_zh_cn from "../../../public/locales/zh-cn/chat.json";
 import config_zh_cn from "../../../public/locales/zh-cn/config.json";
-import delete_brain_zh_cn from "../../../public/locales/zh-cn/deleteBrain.json";
+import delete_brain_zh_cn from "../../../public/locales/zh-cn/deleteOrUnsubscribeFromBrain.json";
 import explore_zh_cn from "../../../public/locales/zh-cn/explore.json";
 import invitation_zh_cn from "../../../public/locales/zh-cn/invitation.json";
+import knowlegde_zh_cn from "../../../public/locales/zh-cn/knowledge.json";
 import login_zh_cn from "../../../public/locales/zh-cn/login.json";
 import logout_zh_cn from "../../../public/locales/zh-cn/logout.json";
 import signUp_zh_cn from "../../../public/locales/zh-cn/signUp.json";
@@ -89,7 +95,7 @@ export type Translations = {
   brain: typeof import("../../../public/locales/en/brain.json");
   chat: typeof import("../../../public/locales/en/chat.json");
   config: typeof import("../../../public/locales/en/config.json");
-  delete_brain: typeof import("../../../public/locales/en/deleteBrain.json");
+  delete_or_unsubscribe_from_brain: typeof import("../../../public/locales/en/deleteOrUnsubscribeFromBrain.json");
   explore: typeof import("../../../public/locales/en/explore.json");
   invitation: typeof import("../../../public/locales/en/invitation.json");
   login: typeof import("../../../public/locales/en/login.json");
@@ -99,6 +105,7 @@ export type Translations = {
   updatePassword: typeof import("../../../public/locales/en/updatePassword.json");
   upload: typeof import("../../../public/locales/en/upload.json");
   user: typeof import("../../../public/locales/en/user.json");
+  knowledge: typeof import("../../../public/locales/en/knowledge.json");
 };
 
 enum SupportedLanguages {
@@ -125,7 +132,8 @@ export const resources: Record<SupportedLanguages, Translations> = {
     updatePassword: updatePassword_en,
     upload: upload_en,
     user: user_en,
-    delete_brain: delete_brain_en,
+    delete_or_unsubscribe_from_brain: delete_brain_en,
+    knowledge: knowlegde_en,
   },
   es: {
     brain: brain_es,
@@ -140,7 +148,8 @@ export const resources: Record<SupportedLanguages, Translations> = {
     updatePassword: updatePassword_es,
     upload: upload_es,
     user: user_es,
-    delete_brain: delete_brain_es,
+    delete_or_unsubscribe_from_brain: delete_brain_es,
+    knowledge: knowlegde_es,
   },
   fr: {
     brain: brain_fr,
@@ -155,7 +164,8 @@ export const resources: Record<SupportedLanguages, Translations> = {
     updatePassword: updatePassword_fr,
     upload: upload_fr,
     user: user_fr,
-    delete_brain: delete_brain_fr,
+    delete_or_unsubscribe_from_brain: delete_brain_fr,
+    knowledge: knowlegde_fr,
   },
   ptbr: {
     brain: brain_ptbr,
@@ -170,7 +180,8 @@ export const resources: Record<SupportedLanguages, Translations> = {
     updatePassword: updatePassword_ptbr,
     upload: upload_ptbr,
     user: user_ptbr,
-    delete_brain: delete_brain_ptbr,
+    delete_or_unsubscribe_from_brain: delete_brain_ptbr,
+    knowledge: knowlegde_ptbr,
   },
   ru: {
     brain: brain_ru,
@@ -185,7 +196,8 @@ export const resources: Record<SupportedLanguages, Translations> = {
     updatePassword: updatePassword_ru,
     upload: upload_ru,
     user: user_ru,
-    delete_brain: delete_brain_ru,
+    delete_or_unsubscribe_from_brain: delete_brain_ru,
+    knowledge: knowlegde_ru,
   },
   zh_cn: {
     brain: brain_zh_cn,
@@ -200,6 +212,7 @@ export const resources: Record<SupportedLanguages, Translations> = {
     updatePassword: updatePassword_zh_cn,
     upload: upload_zh_cn,
     user: user_zh_cn,
-    delete_brain: delete_brain_zh_cn,
+    delete_or_unsubscribe_from_brain: delete_brain_zh_cn,
+    knowledge: knowlegde_zh_cn,
   },
 } as const;

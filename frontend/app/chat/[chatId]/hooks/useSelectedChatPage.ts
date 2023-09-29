@@ -1,73 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { useChatApi } from "@/lib/api/chat/useChatApi";
-import { useNotificationApi } from "@/lib/api/notification/useNotificationApi";
-import { useChatContext } from "@/lib/context";
-
-import { getChatNotificationsQueryKey } from "../utils/getChatNotificationsQueryKey";
-import { getMessagesFromChatItems } from "../utils/getMessagesFromChatItems";
-import { getNotificationsFromChatItems } from "../utils/getNotificationsFromChatItems";
+import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useSelectedChatPage = () => {
-  const { setMessages, setNotifications, notifications } = useChatContext();
-  const { getChatItems } = useChatApi();
-  const { getChatNotifications } = useNotificationApi();
-  const params = useParams();
-
-  const chatId = params?.chatId as string | undefined;
-
-  const chatNotificationsQueryKey = getChatNotificationsQueryKey(chatId ?? "");
-  const { data: fetchedNotifications = [] } = useQuery({
-    queryKey: [chatNotificationsQueryKey],
-    enabled: notifications.length > 0,
-    queryFn: () => {
-      if (chatId === undefined) {
-        return [];
-      }
-
-      return getChatNotifications(chatId);
-    },
-    refetchInterval: () => {
-      if (notifications.length === 0) {
-        return false;
-      }
-      const hasAPendingNotification = notifications.find(
-        (item) => item.status === "Pending"
-      );
-
-      if (hasAPendingNotification) {
-        //30 seconds
-        return 2_000;
-      }
-
-      return false;
-    },
-  });
+  const [shouldDisplayUploadCard, setShouldDisplayUploadCard] = useState(false);
+  const { knowledgeToFeed } = useKnowledgeToFeedContext();
 
   useEffect(() => {
-    if (fetchedNotifications.length === 0) {
-      return;
+    if (knowledgeToFeed.length > 0 && !shouldDisplayUploadCard) {
+      setShouldDisplayUploadCard(true);
     }
-    setNotifications(fetchedNotifications);
-  }, [fetchedNotifications]);
+  }, [knowledgeToFeed, setShouldDisplayUploadCard]);
 
-  useEffect(() => {
-    const fetchHistory = async () => {
-      if (chatId === undefined) {
-        setMessages([]);
-        setNotifications([]);
-
-        return;
-      }
-
-      const chatItems = await getChatItems(chatId);
-
-      setMessages(getMessagesFromChatItems(chatItems));
-      setNotifications(getNotificationsFromChatItems(chatItems));
-    };
-    void fetchHistory();
-  }, [chatId]);
+  return {
+    shouldDisplayUploadCard,
+    setShouldDisplayUploadCard,
+  };
 };

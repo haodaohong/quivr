@@ -1,5 +1,61 @@
 # Changelog
 
+## 0.0.84 (2023-09-28)
+
+## What's Changed
+* feat: 👤 Implement gravatar by @matthieujacq in https://github.com/StanGirard/quivr/pull/1268
+* feat: improve knowledge feed process ux by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1274
+* fix: 🔒️ add gravatar.com to the content security policy by @matthieujacq in https://github.com/StanGirard/quivr/pull/1273
+* feat(chatPage): update ui add new feed component by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1275
+* feat: knowledge tab add button by @gozineb in https://github.com/StanGirard/quivr/pull/1277
+* fix(brains): get brains on local by @B0rrA in https://github.com/StanGirard/quivr/pull/1272
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.83...v0.0.84
+
+## 0.0.83 (2023-09-27)
+
+## What's Changed
+* feat(nav): 🚚 Move Brain and User buttons to the sidebar in the chat by @matthieujacq in https://github.com/StanGirard/quivr/pull/1262
+* feat: save last chat config and make it default one by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1266
+* style: improve upload ux by @Rahil2507 in https://github.com/StanGirard/quivr/pull/1259
+* fix(docs): add prerequisites section in step 2 by @JvSdv in https://github.com/StanGirard/quivr/pull/1149
+* style: improve ui by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1263
+
+## New Contributors
+* @Rahil2507 made their first contribution in https://github.com/StanGirard/quivr/pull/1259
+* @JvSdv made their first contribution in https://github.com/StanGirard/quivr/pull/1149
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.82...v0.0.83
+
+## 0.0.82 (2023-09-26)
+
+## What's Changed
+* fix(RBAC): skip validation for unplug by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1264
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.81...v0.0.82
+
+## 0.0.81 (2023-09-26)
+
+## What's Changed
+* feat: activate public brain subscription by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1241
+* feat(publicBrain): disable subscribe button when already subscribed and refetch brains list by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1246
+* feat: knowledge tab list by @gozineb in https://github.com/StanGirard/quivr/pull/1222
+* fix(preview): fixed a few bugs unchecked by @StanGirard in https://github.com/StanGirard/quivr/pull/1247
+* feat: add last_update field to brain table by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1252
+* fix: urls to avoid 307 by @gozineb in https://github.com/StanGirard/quivr/pull/1253
+* feat: allow user to unsubscribe from a brain by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1254
+* feat(user): 🚚 Move language and theme buttons to the User page by @matthieujacq in https://github.com/StanGirard/quivr/pull/1256
+* Update next.config.js by @riccardolinares in https://github.com/StanGirard/quivr/pull/1251
+* feat: allow setting public brain status to private by @mamadoudicko in https://github.com/StanGirard/quivr/pull/1258
+
+## New Contributors
+* @matthieujacq made their first contribution in https://github.com/StanGirard/quivr/pull/1256
+* @riccardolinares made their first contribution in https://github.com/StanGirard/quivr/pull/1251
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.80...v0.0.81
+
 ## 0.0.80 (2023-09-21)
 
 **Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.79...v0.0.80

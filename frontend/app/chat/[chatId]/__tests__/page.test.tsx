@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
@@ -9,12 +10,15 @@ import {
   ChatContextMock,
   ChatProviderMock,
 } from "@/lib/context/ChatProvider/mocks/ChatProviderMock";
+import { KnowledgeToFeedProvider } from "@/lib/context/KnowledgeToFeedProvider";
 import {
   SupabaseContextMock,
   SupabaseProviderMock,
 } from "@/lib/context/SupabaseProvider/mocks/SupabaseProviderMock";
 
 import SelectedChatPage from "../page";
+
+const queryClient = new QueryClient();
 
 vi.mock("@/lib/context/ChatProvider/ChatProvider", () => ({
   ChatContext: ChatContextMock,
@@ -39,6 +43,22 @@ vi.mock("@/lib/api/chat/useChatApi", () => ({
     getHistory: () => [],
   }),
 }));
+
+vi.mock("@/lib/hooks", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/hooks")>(
+    "@/lib/hooks"
+  );
+
+  return {
+    ...actual,
+    useAxios: () => ({
+      axiosInstance: {
+        get: vi.fn(() => ({ data: [] })),
+      },
+    }),
+  };
+});
+
 vi.mock("@tanstack/react-query", async () => {
   const actual = await vi.importActual<typeof import("@tanstack/react-query")>(
     "@tanstack/react-query"
@@ -55,13 +75,17 @@ vi.mock("@tanstack/react-query", async () => {
 describe("Chat page", () => {
   it("should render chat page correctly", () => {
     const { getByTestId } = render(
-      <ChatProviderMock>
-        <SupabaseProviderMock>
-          <BrainProviderMock>
-            <SelectedChatPage />,
-          </BrainProviderMock>
-        </SupabaseProviderMock>
-      </ChatProviderMock>
+      <KnowledgeToFeedProvider>
+        <QueryClientProvider client={queryClient}>
+          <ChatProviderMock>
+            <SupabaseProviderMock>
+              <BrainProviderMock>
+                <SelectedChatPage />,
+              </BrainProviderMock>
+            </SupabaseProviderMock>
+          </ChatProviderMock>
+        </QueryClientProvider>
+      </KnowledgeToFeedProvider>
     );
 
     expect(getByTestId("chat-page")).toBeDefined();

@@ -58,7 +58,7 @@ class Brain(Repository):
     def get_user_brains(self, user_id) -> list[MinimalBrainEntity]:
         response = (
             self.db.from_("brains_users")
-            .select("id:brain_id, rights, brains (id: brain_id, name, status)")
+            .select("id:brain_id, rights, brains (brain_id, name, status)")
             .filter("user_id", "eq", user_id)
             .execute()
         )
@@ -66,7 +66,7 @@ class Brain(Repository):
         for item in response.data:
             user_brains.append(
                 MinimalBrainEntity(
-                    id=item["brains"]["id"],
+                    id=item["brains"]["brain_id"],
                     name=item["brains"]["name"],
                     rights=item["rights"],
                     status=item["brains"]["status"],
@@ -127,14 +127,18 @@ class Brain(Repository):
         )
         return response.data
 
-    def delete_brain_user_by_id(self, user_id, brain_id):
+    def delete_brain_user_by_id(
+        self,
+        user_id: UUID,
+        brain_id: UUID,
+    ):
         results = (
             self.db.table("brains_users")
-            .select("*")
-            .match({"brain_id": brain_id, "user_id": user_id, "rights": "Owner"})
+            .delete()
+            .match({"brain_id": str(brain_id), "user_id": str(user_id)})
             .execute()
         )
-        return results
+        return results.data
 
     def delete_brain_vector(self, brain_id: str):
         results = (
@@ -146,13 +150,24 @@ class Brain(Repository):
 
         return results
 
-    def delete_brain_user(self, brain_id: str):
+    def delete_brain_users(self, brain_id: str):
         results = (
             self.db.table("brains_users")
             .delete()
             .match({"brain_id": brain_id})
             .execute()
         )
+
+        return results
+
+    def delete_brain_subscribers(self, brain_id: UUID):
+        results = (
+            self.db.table("brains_users")
+            .delete()
+            .match({"brain_id": str(brain_id)})
+            .match({"rights": "Viewer"})
+            .execute()
+        ).data
 
         return results
 
