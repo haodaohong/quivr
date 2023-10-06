@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { useSupabase } from "@/lib/context/SupabaseProvider";
 
-import { useGravatar } from "../hooks/useGravatar";
+import { useGravatar } from "../../../../../hooks/useGravatar";
 import { sidebarLinkStyle } from "../styles/SidebarLinkStyle";
 
 export const UserButton = (): JSX.Element => {
@@ -15,7 +15,8 @@ export const UserButton = (): JSX.Element => {
       <div className="relative w-8 h-8">
         <Image
           alt="gravatar"
-          layout="fill"
+          fill={true}
+          sizes="32px"
           src={gravatarUrl}
           className="rounded-xl"
         />
